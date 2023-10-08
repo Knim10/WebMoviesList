@@ -22,4 +22,4 @@ public class DeleteMovieServlet extends HttpServlet {
         dao.deleteMovie(id);
         getServletContext().getRequestDispatcher("/ViewAllMoviesServlet").forward(request, response);
     }
-}
+} 
