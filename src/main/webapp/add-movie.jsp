@@ -10,6 +10,7 @@
 <form action="AddMovieServlet" method="post">
     Movie Title: <input type="text" name="title"><br>
     Release Date: <input type="date" name="releaseDate"><br>
+    Genre: <input type="text" name="genre"><br>
     <input type="submit" value="Add Movie">
 </form>
 <br>
