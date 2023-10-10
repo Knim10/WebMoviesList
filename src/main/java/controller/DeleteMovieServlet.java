@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Movie;
 import controller.MovieHelper;
 
 @WebServlet("/DeleteMovieServlet")
@@ -19,7 +20,8 @@ public class DeleteMovieServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MovieHelper dao = new MovieHelper();
         int id = Integer.parseInt(request.getParameter("id"));
-        dao.deleteMovie(id);
+        Movie toDelete = dao.searchForMovieById(id);
+        dao.deleteMovie(toDelete);
         getServletContext().getRequestDispatcher("/ViewAllMoviesServlet").forward(request, response);
     }
-} 
+}

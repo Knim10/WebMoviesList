@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>WebMoviesList Home</title>
 </head>
 <body>
-
+<h1>Welcome to WebMoviesList</h1>
+<p><a href="ViewAllMoviesServlet">View All Movies</a></p>
+<p><a href="add-movie.jsp">Add a New Movie</a></p>
 </body>
 </html>
