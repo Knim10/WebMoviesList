@@ -13,26 +13,26 @@ import controller.MovieHelper;
 
 @WebServlet("/EditMovieServlet")
 public class EditMovieServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    public EditMovieServlet() {
-        super();
-    }
+	public EditMovieServlet() {
+		super();
+	}
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MovieHelper dao = new MovieHelper();
-        int id = Integer.parseInt(request.getParameter("id"));
-        Movie movieToUpdate = dao.searchForMovieById(id);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		MovieHelper mh = new MovieHelper();
+		String newTitle = request.getParameter("title");
+		String newGenre = request.getParameter("genre");
+		LocalDate newReleaseDate = LocalDate.parse(request.getParameter("releaseDate"));
+		int id = Integer.parseInt(request.getParameter("id"));
 
-        String newTitle = request.getParameter("title");
-        String newGenre = request.getParameter("genre");
-        LocalDate newReleaseDate = LocalDate.parse(request.getParameter("releaseDate"));
+		Movie movieToUpdate = mh.searchForMovieById(id);
+		movieToUpdate.setTitle(newTitle);
+		movieToUpdate.setGenre(newGenre);
+		movieToUpdate.setReleaseDate(newReleaseDate);
 
-        movieToUpdate.setTitle(newTitle);
-        movieToUpdate.setGenre(newGenre);
-        movieToUpdate.setReleaseDate(newReleaseDate);
-
-        dao.updateMovie(movieToUpdate);
-        getServletContext().getRequestDispatcher("/ViewAllMoviesServlet").forward(request, response);
-    }
+		mh.updateMovie(movieToUpdate);
+		getServletContext().getRequestDispatcher("/ViewAllMoviesServlet").forward(request, response);
+	}
 }

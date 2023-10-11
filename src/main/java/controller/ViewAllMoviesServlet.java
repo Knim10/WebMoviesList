@@ -20,10 +20,13 @@ public class ViewAllMoviesServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MovieHelper dao = new MovieHelper();
-        List<Movie> allMovies = dao.showAllMovies();
-        request.setAttribute("allMovies", allMovies);
-        getServletContext().getRequestDispatcher("/view-all-movies.jsp").forward(request, response);
+        MovieHelper mh = new MovieHelper();
+        request.setAttribute("allMovies", mh.showAllMovies());
+        String path = "/view-all-movies.jsp";
+        if(mh.showAllMovies().isEmpty()) {
+        	path = "/index.jsp";
+        }
+        getServletContext().getRequestDispatcher(path).forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

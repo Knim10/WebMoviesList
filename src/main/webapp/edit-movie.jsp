@@ -9,9 +9,10 @@
 <body>
 <h1>Edit Movie</h1>
 <form action="EditMovieServlet" method="post">
-    <input type="hidden" name="id" value="${selectedMovie.id}">
-    Movie Title: <input type="text" name="title" value="${selectedMovie.title}"><br>
-    Release Date: <input type="date" name="releaseDate" value="${selectedMovie.releaseDate}"><br>
+    Movie Title: <input type="text" name="title" value="${movieToEdit.title}"><br>
+    Release Date: <input type="date" name="releaseDate" value="${movieToEdit.releaseDate}"><br>
+    Genre: <input type="text" name="genre" value="${movieToEdit.genre}"><br>
+    <input type="hidden" name="id" value="${movieToEdit.id}">
     <input type="submit" value="Update Movie">
 </form>
 <br>

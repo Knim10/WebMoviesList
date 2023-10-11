@@ -18,10 +18,10 @@ public class DeleteMovieServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MovieHelper dao = new MovieHelper();
+        MovieHelper mh = new MovieHelper();
         int id = Integer.parseInt(request.getParameter("id"));
-        Movie toDelete = dao.searchForMovieById(id);
-        dao.deleteMovie(toDelete);
+        Movie toDelete = mh.searchForMovieById(id);
+        mh.deleteMovie(toDelete);
         getServletContext().getRequestDispatcher("/ViewAllMoviesServlet").forward(request, response);
     }
 }
