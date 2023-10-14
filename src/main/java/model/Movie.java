@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @authors Kenneth Nimmo, Taylor Layton, Jennifer Jarrell
@@ -23,6 +25,10 @@ public class Movie {
     private String genre;
     private LocalDate releaseDate; 
 
+    @ManyToOne
+    @JoinColumn(name = "movieNight_id")
+    private MovieNight movieNight;
+
     public Movie() {
         super();
     }
@@ -31,6 +37,13 @@ public class Movie {
         this.title = title;
         this.genre = genre;
         this.releaseDate = releaseDate;
+    }
+
+    public Movie(String title, String genre, LocalDate releaseDate, MovieNight movieNight) {
+        this.title = title;
+        this.genre = genre;
+        this.releaseDate = releaseDate;
+        this.movieNight = movieNight;
     }
 
 	/**
@@ -88,4 +101,17 @@ public class Movie {
 	public void setReleaseDate(LocalDate releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-}
+	    /**
+	     * @return the movieNight
+	     */
+	    public MovieNight getMovieNight() {
+	        return movieNight;
+	    }
+
+	    /**
+	     * @param movieNight the movieNight to set
+	     */
+	    public void setMovieNight(MovieNight movieNight) {
+	        this.movieNight = movieNight;
+	    }
+	}

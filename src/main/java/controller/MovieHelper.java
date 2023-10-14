@@ -62,4 +62,27 @@ public class MovieHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+    public List<Movie> getAllMovies() {
+        EntityManager em = emfactory.createEntityManager();
+        TypedQuery<Movie> typedQuery = em.createQuery("SELECT m from Movie m", Movie.class);
+        List<Movie> movies = null;
+        try {
+            movies = typedQuery.getResultList();
+        } finally {
+            em.close();
+        }
+        return movies;
+    }
+    
+    public Movie getMovieById(int id) {
+        EntityManager em = emfactory.createEntityManager();
+        Movie foundMovie = null;
+        try {
+            foundMovie = em.find(Movie.class, id);
+        } finally {
+            em.close();
+        }
+        return foundMovie;
+    }
 }
