@@ -9,7 +9,9 @@ import javax.persistence.TypedQuery;
 import model.Movie;
 
 /**
- * @author Kenneth Nimmo - Knimmo CIS175 - Fall 2021 Oct 6, 2023
+ * @author Kenneth Nimmo - Knimmo
+ * CIS175 - Fall 2021
+ * Oct 6, 2023
  */
 public class MovieHelper {
 

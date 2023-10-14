@@ -51,7 +51,7 @@ local.properties
 .recommenders/
 
 #Persistence XML
-/META-INF/
+*/META-INF/*
 
 # Annotation Processing
 .apt_generated/

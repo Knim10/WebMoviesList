@@ -23,6 +23,6 @@
     <input type="submit" value="add" name="doThisToMovie">
 </form>
 <br>
-<a href="index.jsp">Return Home</a>
+<a href="index.jsp">Return home</a>
 </body>
 </html>
