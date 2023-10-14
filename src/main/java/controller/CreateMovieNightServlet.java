@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Movie;
 import model.MovieNight;
-import controller.MovieHelper;
-import controller.MovieNightHelper;
 
 @WebServlet("/createMovieNight")
 public class CreateMovieNightServlet extends HttpServlet {
@@ -32,8 +30,8 @@ public class CreateMovieNightServlet extends HttpServlet {
         
         MovieNight movieNight = new MovieNight(movieNightName);
         
-        for (String movieIdStr : selectedMovieIds) {
-            int movieId = Integer.parseInt(movieIdStr);
+        for (String movieIdString : selectedMovieIds) {
+            int movieId = Integer.parseInt(movieIdString);
             Movie movie = movieHelper.getMovieById(movieId);
             movie.setMovieNight(movieNight);
             movieNight.getMovies().add(movie);

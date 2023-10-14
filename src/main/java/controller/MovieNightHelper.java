@@ -48,4 +48,15 @@ public class MovieNightHelper {
         em.getTransaction().commit();
         em.close();
     }
+    
+    public void deleteMovieNight(MovieNight movieNight) {
+        EntityManager em = emfactory.createEntityManager();
+        em.getTransaction().begin();
+        MovieNight toDelete = em.find(MovieNight.class, movieNight.getId());
+        if (toDelete != null) {
+            em.remove(toDelete);
+        }
+        em.getTransaction().commit();
+        em.close();
+    }
 }

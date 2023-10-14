@@ -18,6 +18,7 @@ public class MovieNight {
 
     @OneToMany(mappedBy = "movieNight", orphanRemoval = true, cascade = javax.persistence.CascadeType.PERSIST)
     private List<Movie> movies;
+	private String name;
 
     public MovieNight() {
         super();
@@ -89,4 +90,13 @@ public class MovieNight {
 	public void setMovies(List<Movie> movies) {
 		this.movies = movies;
 	}
+	
+
+    public String getName() {
+        return getName();
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
