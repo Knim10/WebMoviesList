@@ -16,6 +16,7 @@
                 <td>${currentMovie.title}</td>
             </tr>
             <tr><td colspan="2">Release Date: ${currentMovie.releaseDate}</td></tr>
+            <tr><td colspan="2">Genre: ${currentMovie.genre}</td></tr>
         </c:forEach>
     </table>
     <input type="submit" value="edit" name="doThisToMovie">

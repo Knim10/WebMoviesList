@@ -3,15 +3,17 @@ package controller;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import model.Movie;
 import model.MovieNight;
 
+
 public class MovieNightHelper {
 
-    static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebMovieNightList");
+    static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebMoviesList");
 
     public void insertMovieNight(MovieNight mn) {
         EntityManager em = emfactory.createEntityManager();
@@ -59,4 +61,23 @@ public class MovieNightHelper {
         em.getTransaction().commit();
         em.close();
     }
+    
+	public MovieNight findMovieNight(String nameToLookUp) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<MovieNight> typedQuery = em.createQuery("select mn from MovieNight mn where mn.hostName = :selectedName", MovieNight.class);
+		typedQuery.setParameter("selectedName", nameToLookUp);
+		typedQuery.setMaxResults(1);
+		
+		MovieNight foundMovieNight;
+		try {
+			foundMovieNight = typedQuery.getSingleResult();
+		}
+		catch(NoResultException ex) {
+			foundMovieNight = new MovieNight(nameToLookUp);
+		}
+		em.close();
+		return foundMovieNight;
+	}
+	
 }
