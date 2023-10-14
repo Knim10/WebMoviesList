@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
 import model.Movie;
-import controller.MovieHelper;
 
 @WebServlet("/AddMovieServlet")
 public class AddMovieServlet extends HttpServlet {
