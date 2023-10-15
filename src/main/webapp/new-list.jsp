@@ -8,11 +8,9 @@
 </head>
 <body>
 	<form action ="createNewListServlet" method="post"> 
-	List Name:
+	Movie Night List Name:
 	<input type="text" name="listName">
-	<br /> Movie Genre:
-	<input type="text" name="genre" size="4">
-	Movie Night:
+	<br /> Movie Night Genre:
 	<input type="text" name="movieNight">
 	<br /> Available Items:
 	<br />
