@@ -14,14 +14,14 @@ import model.ListDetails;
 /**
  * Servlet implementation class VewAllListsServlet
  */
-@WebServlet("/vewAllListsServlet")
-public class VewAllListsServlet extends HttpServlet {
+@WebServlet("/viewAllListsServlet")
+public class ViewAllListsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VewAllListsServlet() {
+    public ViewAllListsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

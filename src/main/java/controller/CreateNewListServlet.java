@@ -18,7 +18,7 @@ import model.MovieNight;
 /**
  * Servlet implementation class CreateNewListServlet
  */
-@WebServlet("/CreateNewListServlet")
+@WebServlet("/createNewListServlet")
 public class CreateNewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
