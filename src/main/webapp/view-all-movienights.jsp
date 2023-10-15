@@ -16,7 +16,7 @@
 	<td><h2>${currentlist.listName}</h2></td></tr>
 	<tr><td colspan="3">Movie Night:
 	${currentlist.movieNight.hostName}</td></tr>
-		<c:forEach var ="listVal" items ="${currentlist.listOfMovies}">
+		<c:forEach var ="listVal" items ="${currentlist.listOfItems}">
 			<tr><td></td><td colspan="3">
 				${listVal.title}, ${listVal.genre},
 				</td>

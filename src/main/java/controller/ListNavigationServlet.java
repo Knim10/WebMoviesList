@@ -70,7 +70,7 @@ public class ListNavigationServlet extends HttpServlet {
 					request.setAttribute("allitems", " ");
 				}
 				
-				getServletContext().getRequestDispatcher("/edit-list.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/edit-movie.jsp").forward(request, response);
 			}
 			catch(NumberFormatException e) {
 				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
