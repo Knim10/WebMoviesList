@@ -36,16 +36,12 @@ public class ListDetailsHelper {
 		TypedQuery<ListDetails> typedQuery = em
 				.createQuery("select detail from ListDetails detail where detail.id = :selectedId", ListDetails.class);
 
-		// substitute parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedId", toDelete.getId());
 
-		// we only want one result
 		typedQuery.setMaxResults(1);
 
-		// get the result and save it into a new list item
 		ListDetails result = typedQuery.getSingleResult();
 
-		// remove it
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();

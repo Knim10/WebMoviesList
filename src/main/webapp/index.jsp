@@ -9,8 +9,7 @@
 <h1>Welcome to WebMoviesList</h1>
 <p><a href="add-movie.jsp">Add a New Movie</a></p>
 <p><a href="ViewAllMoviesServlet">View All Movies</a></p>
-<p><a href="create-movienight.jsp">Create a Movie Night</a></p>
-<p><a href="view-all-movienights.jsp">View All Movie Nights</a></p>
+<p><a href="view-all-movienights.jsp">View or Create a Movie Night</a></p>
 
 </body>
 </html>

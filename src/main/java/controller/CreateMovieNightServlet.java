@@ -20,7 +20,7 @@ public class CreateMovieNightServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Movie> movies = movieHelper.getAllMovies();
         request.setAttribute("movies", movies);
-        request.getRequestDispatcher("/createMovieNight.jsp").forward(request, response);
+        request.getRequestDispatcher("/create-movienight.jsp").forward(request, response);
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -28,15 +28,22 @@ public class CreateMovieNightServlet extends HttpServlet {
         String[] selectedMovieIds = request.getParameterValues("selectedMovies");
         String movieNightName = request.getParameter("movieNightName");
         
+        if (selectedMovieIds == null || selectedMovieIds.length == 0 || movieNightName == null || movieNightName.trim().isEmpty()) {
+            
+            request.setAttribute("errorMessage", "Please select at least one movie and enter a movie night name.");
+            doGet(request, response);
+            return;
+        }
+
         MovieNight movieNight = new MovieNight(movieNightName);
-        
+
         for (String movieIdString : selectedMovieIds) {
             int movieId = Integer.parseInt(movieIdString);
             Movie movie = movieHelper.getMovieById(movieId);
             movie.setMovieNight(movieNight);
             movieNight.getMovies().add(movie);
         }
-        
+
         movieNightHelper.insertMovieNight(movieNight);
         
         response.sendRedirect("index.jsp");

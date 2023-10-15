@@ -40,7 +40,6 @@ public class ListNavigationServlet extends HttpServlet {
 		String act = request.getParameter("doThisToList");
 		
 		if(act == null) {
-			//no button has been selected
 			getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
 		}
 		else if(act.equals("delete")) {
